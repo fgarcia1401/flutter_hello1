@@ -7,10 +7,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         theme: ThemeData(
-            primaryColor: Colors.blue
+          primaryColor: Colors.blue,
         ),
-        home: HomePage()
-    );
+        home: HomePage());
   }
 }
 
@@ -18,14 +17,17 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Hello Flutter",),
-          centerTitle: true,
+      appBar: AppBar(
+        title: Text(
+          "Hello Flutter",
         ),
-        body: Container(
-          color: Colors.white,
-          child: Center(
-            child: Text("Hello World",
+        centerTitle: true,
+      ),
+      body: Container(
+        color: Colors.white,
+        child: Center(
+          child: Text(
+            "Hello World",
             style: TextStyle(
               fontSize: 30,
               color: Colors.blue,
@@ -33,9 +35,11 @@ class HomePage extends StatelessWidget {
               fontStyle: FontStyle.italic,
               decoration: TextDecoration.underline,
               decorationColor: Colors.red,
-              decorationStyle: TextDecorationStyle.dotted
-            ),) ,
-          )
-        ));
+              decorationStyle: TextDecorationStyle.dotted,
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
