@@ -10,23 +10,33 @@ class HomePage extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: Container(
-        color: Colors.white,
-        child: Center(
-          child: Text(
-            "Hello World",
-            style: TextStyle(
-              fontSize: 30,
-              color: Colors.blue,
-              fontWeight: FontWeight.bold,
-              fontStyle: FontStyle.italic,
-              decoration: TextDecoration.underline,
-              decorationColor: Colors.red,
-              decorationStyle: TextDecorationStyle.dotted,
-            ),
-          ),
-        ),
+      body: _body(),
+    );
+  }
+
+  _body() {
+    return Container(
+      color: Colors.white,
+      child: Center(
+        child: _text()
       ),
     );
   }
+
+  _text() {
+    return Text(
+      "Hello World",
+      style: TextStyle(
+        fontSize: 30,
+        color: Colors.blue,
+        fontWeight: FontWeight.bold,
+        fontStyle: FontStyle.italic,
+        decoration: TextDecoration.underline,
+        decorationColor: Colors.red,
+        decorationStyle: TextDecorationStyle.dotted,
+      ),
+    );
+  }
+  
+  
 }
