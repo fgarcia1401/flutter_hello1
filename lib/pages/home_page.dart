@@ -16,9 +16,10 @@ class HomePage extends StatelessWidget {
 
   _body() {
     return Container(
-      margin: EdgeInsets.only(left: 10, top: 10),
       color: Colors.white,
-      child: _text(),
+      child: Center(
+        child: _img(),
+      ),
     );
   }
 
@@ -36,6 +37,11 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
-  
-  
+
+  _img() {
+    return Image.asset(
+      "assets/images/dog4.png",
+      fit: BoxFit.cover,
+    );
+  }
 }
