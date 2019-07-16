@@ -15,18 +15,40 @@ class HomePage extends StatelessWidget {
   }
 
   _body(context) {
-
     return Container(
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            _text(),
-            _img(),
-            _button(),
-          ],
+      color: Colors.white,
+        child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                _text(),
+                _img(),
+                _buttons()
+              ],
+            )
         )
-      )
+    );
+  }
+
+  _buttons() {
+    return Column(children: <Widget>[
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          _button("ListView"),
+          _button("Page 2"),
+          _button("Page 3")
+        ],
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          _button("Snack"),
+          _button("Dialog"),
+          _button("Toast")
+        ],
+      ),
+    ],
     );
   }
 
@@ -45,11 +67,11 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  _button() {
+  _button(String texto) {
     return RaisedButton(
       color: Colors.blue,
       child: Text(
-        "OK",
+        texto,
         style:
         TextStyle(
             color: Colors.white,
