@@ -16,15 +16,18 @@ class HomePage extends StatelessWidget {
 
   _body(context) {
     return Container(
-      color: Colors.white,
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            _text(),
-            _pageView(),
-            _buttons(),
-          ],
+      padding: const EdgeInsets.all(16.0),
+      child: Container(
+        color: Colors.white,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              _text(),
+              _pageView(),
+              _buttons(),
+            ],
+          ),
         ),
       ),
     );
@@ -32,6 +35,7 @@ class HomePage extends StatelessWidget {
 
   _pageView() {
     return Container(
+      margin: EdgeInsets.only(top: 20, bottom: 20),
       height: 300,
       child: PageView(
         children: <Widget>[
@@ -102,7 +106,6 @@ class HomePage extends StatelessWidget {
 
   _img(String img) {
     return Container(
-      margin: EdgeInsets.all(20),
       child: Image.asset(
         img,
         fit: BoxFit.cover,
