@@ -16,16 +16,18 @@ class HomePage extends StatelessWidget {
 
   _body(context) {
     return Container(
-        color: Colors.white,
-        child: Center(
-            child: Column(
+      color: Colors.white,
+      child: Center(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             _text(),
             _pageView(),
-            _buttons()
+            _buttons(),
           ],
-        )));
+        ),
+      ),
+    );
   }
 
   _pageView() {
