@@ -15,19 +15,17 @@ class HomePage extends StatelessWidget {
   }
 
   _body(context) {
-    Size size = MediaQuery.of(context).size;
 
     return Container(
-      width: size.width,
-      color: Colors.yellow,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          _button(),
-          _button(),
-          _button()
-        ],
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            _text(),
+            _img(),
+            _button(),
+          ],
+        )
       )
     );
   }
@@ -69,7 +67,7 @@ class HomePage extends StatelessWidget {
 
   _img() {
     return Image.asset(
-      "assets/images/dog4.png",
+      "assets/images/dog1.png",
       fit: BoxFit.cover,
     );
   }
