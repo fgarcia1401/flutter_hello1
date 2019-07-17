@@ -10,6 +10,29 @@ class HelloPage2 extends StatelessWidget {
         title: Text("Page 2"),
         centerTitle: true,
       ),
+      body: _body(context),
     );
   }
+
+  _body(context) {
+    return Center(
+        child: RaisedButton(
+          color: Colors.blue,
+          child: Text(
+            "Voltar",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20
+            ),
+          ),
+          onPressed: () => onClickVoltar(context),
+        ),
+    );
+  }
+
+  onClickVoltar(context) {
+    Navigator.pop(context);
+  }
+
+
 }
