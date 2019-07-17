@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_hello1/pages/widgets/blue_button.dart';
 
 class HelloPage3 extends StatelessWidget {
   @override
@@ -16,17 +17,7 @@ class HelloPage3 extends StatelessWidget {
 
   _body(context) {
     return Center(
-      child: RaisedButton(
-        color: Colors.blue,
-        child: Text(
-          "Voltar",
-          style: TextStyle(
-              color: Colors.white,
-              fontSize: 20
-          ),
-        ),
-        onPressed: () => onClickVoltar(context),
-      ),
+      child: BlueButton("Voltar", onPressed: () => onClickVoltar(context))
     );
   }
 
