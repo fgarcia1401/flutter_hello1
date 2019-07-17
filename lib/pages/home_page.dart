@@ -107,10 +107,13 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  void _onClickNavigator(BuildContext context, Widget page) {
-    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
+  void _onClickNavigator(BuildContext context, Widget page) async {
+    String s  = await Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
       return page;
     }));
+
+    print(" >> $s");
+
   }
 
   _img(String img) {
