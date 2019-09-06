@@ -29,11 +29,12 @@ class HelloListView extends StatelessWidget {
       Dog("Pug","assets/images/dog3.png"),
       Dog("Vira Lata","assets/images/dog4.png"),
       Dog("Pastor","assets/images/dog5.png"),
+
     ];
 
-    return ListView.builder(
+    return GridView.builder(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
       itemCount: dogs.length,
-      itemExtent: 300,
       itemBuilder: (context, index) {
         Dog dog = dogs[index];
         return Stack(
