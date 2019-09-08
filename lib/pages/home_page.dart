@@ -6,7 +6,6 @@ import 'package:flutter_hello1/pages/util/nav.dart';
 import 'package:flutter_hello1/pages/widgets/blue_button.dart';
 
 import 'hello_listview.dart';
-import 'hello_page1.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -33,7 +32,7 @@ class HomePage extends StatelessWidget {
             children: <Widget>[
               _text(),
               _pageView(),
-              _buttons(context),
+              _buttons(),
             ],
           ),
         ),
@@ -57,31 +56,38 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  _buttons(context) {
-    return Column(
-      children: <Widget>[
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  _buttons() {
+    return Builder(
+      builder: (context) {
+        return Column(
           children: <Widget>[
-            BlueButton( "ListView", onPressed: () => _onClickNavigator(context, HelloListView())),
-            BlueButton( "Page 2", onPressed: () => _onClickNavigator(context, HelloPage2())),
-            BlueButton( "Page 3", onPressed: () => _onClickNavigator(context, HelloPage3()))
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                BlueButton("ListView",
+                    onPressed: () =>
+                        _onClickNavigator(context, HelloListView())),
+                BlueButton("Page 2",
+                    onPressed: () => _onClickNavigator(context, HelloPage2())),
+                BlueButton("Page 3",
+                    onPressed: () => _onClickNavigator(context, HelloPage3()))
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                BlueButton("Snack", onPressed: () => _onClickSnack(context)),
+                BlueButton("Dialog", onPressed: () => _onClickDialog(context)),
+                BlueButton("Toast", onPressed: _onClickToastt)
+              ],
+            ),
           ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            BlueButton(  "Snack", onPressed: _onClickSnack),
-            BlueButton( "Dialog", onPressed: _onClickDialog),
-            BlueButton( "Toast", onPressed: _onClickToastt)
-          ],
-        ),
-      ],
+        );
+      },
     );
   }
 
   _text() {
-
     return Text(
       "Hello World",
       style: TextStyle(
@@ -96,14 +102,10 @@ class HomePage extends StatelessWidget {
     );
   }
 
-
-
   void _onClickNavigator(BuildContext context, Widget page) async {
-
     String s = await push(context, page);
 
     print(" >> $s");
-
   }
 
   _img(String img) {
@@ -115,9 +117,42 @@ class HomePage extends StatelessWidget {
     );
   }
 
-   _onClickSnack() {}
+  _onClickSnack(context) {
+    Scaffold.of(context).showSnackBar(SnackBar(
+      content: Text("Olá Flutter"),
+      action: SnackBarAction(
+          label: "Ok",
+          onPressed: () {
+            print("OK");
+          }),
+    ));
+  }
 
-   _onClickDialog() {}
+  _onClickDialog(context) {
+    showDialog(
+        context: context,
+        barrierDismissible: false, 
+        builder: (context) {
+      return AlertDialog(
+        title: Text("Flutter é muito legal!"),
+        actions: <Widget>[
+          FlatButton(
+            child: Text("Cancelar"),
+            onPressed: () {
+              Navigator.pop(context);
+            }
+          ),
+          FlatButton(
+              child: Text("Ok"),
+              onPressed: () {
+                Navigator.pop(context);
+                print("OK!!");
+              }
+          ),
+        ],
+      );
+    });
+  }
 
-   _onClickToastt() {}
+  _onClickToastt() {}
 }
