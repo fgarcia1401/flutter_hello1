@@ -4,6 +4,7 @@ import 'package:flutter_hello1/pages/hello_page2.dart';
 import 'package:flutter_hello1/pages/hello_page3.dart';
 import 'package:flutter_hello1/pages/util/nav.dart';
 import 'package:flutter_hello1/pages/widgets/blue_button.dart';
+import 'package:flutter_hello1/pages/widgets/drawer_list.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import 'hello_listview.dart';
@@ -12,31 +13,21 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            "Hello Flutter",
-          ),
-          centerTitle: true,
+      appBar: AppBar(
+        title: Text(
+          "Hello Flutter",
         ),
-        body: _body(context),
-        floatingActionButton: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
-            FloatingActionButton(
-                child: Icon(Icons.add),
-                onPressed: () {
-                  _onClickFab();
-                }),
-            SizedBox(
-              width: 8,
-            ),
-            FloatingActionButton(
-                child: Icon(Icons.favorite),
-                onPressed: () {
-                  _onClickFab();
-                }),
-          ],
-        ));
+        centerTitle: true,
+      ),
+      body: _body(context),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {
+          _onClickFab();
+        },
+      ),
+      drawer: DrawerList(),
+    );
   }
 
   _body(context) {
