@@ -4,6 +4,7 @@ import 'package:flutter_hello1/pages/hello_page2.dart';
 import 'package:flutter_hello1/pages/hello_page3.dart';
 import 'package:flutter_hello1/pages/util/nav.dart';
 import 'package:flutter_hello1/pages/widgets/blue_button.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import 'hello_listview.dart';
 
@@ -18,6 +19,11 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
       ),
       body: _body(context),
+      floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: () {
+        _onClickFab();
+      }),
     );
   }
 
@@ -28,7 +34,7 @@ class HomePage extends StatelessWidget {
         color: Colors.white,
         child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               _text(),
               _pageView(),
@@ -78,7 +84,7 @@ class HomePage extends StatelessWidget {
               children: <Widget>[
                 BlueButton("Snack", onPressed: () => _onClickSnack(context)),
                 BlueButton("Dialog", onPressed: () => _onClickDialog(context)),
-                BlueButton("Toast", onPressed: _onClickToastt)
+                BlueButton("Toast", onPressed: _onClickToast)
               ],
             ),
           ],
@@ -154,5 +160,19 @@ class HomePage extends StatelessWidget {
     });
   }
 
-  _onClickToastt() {}
+  _onClickToast() {
+    Fluttertoast.showToast(
+        msg: "Flutter é muito legal!",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIos: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0
+    );
+  }
+
+  void _onClickFab() {
+    print("Adicionar");
+  }
 }
