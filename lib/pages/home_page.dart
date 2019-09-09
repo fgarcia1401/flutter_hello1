@@ -12,19 +12,31 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Hello Flutter",
+        appBar: AppBar(
+          title: Text(
+            "Hello Flutter",
+          ),
+          centerTitle: true,
         ),
-        centerTitle: true,
-      ),
-      body: _body(context),
-      floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add),
-          onPressed: () {
-        _onClickFab();
-      }),
-    );
+        body: _body(context),
+        floatingActionButton: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[
+            FloatingActionButton(
+                child: Icon(Icons.add),
+                onPressed: () {
+                  _onClickFab();
+                }),
+            SizedBox(
+              width: 8,
+            ),
+            FloatingActionButton(
+                child: Icon(Icons.favorite),
+                onPressed: () {
+                  _onClickFab();
+                }),
+          ],
+        ));
   }
 
   _body(context) {
@@ -137,27 +149,25 @@ class HomePage extends StatelessWidget {
   _onClickDialog(context) {
     showDialog(
         context: context,
-        barrierDismissible: false, 
+        barrierDismissible: false,
         builder: (context) {
-      return AlertDialog(
-        title: Text("Flutter é muito legal!"),
-        actions: <Widget>[
-          FlatButton(
-            child: Text("Cancelar"),
-            onPressed: () {
-              Navigator.pop(context);
-            }
-          ),
-          FlatButton(
-              child: Text("Ok"),
-              onPressed: () {
-                Navigator.pop(context);
-                print("OK!!");
-              }
-          ),
-        ],
-      );
-    });
+          return AlertDialog(
+            title: Text("Flutter é muito legal!"),
+            actions: <Widget>[
+              FlatButton(
+                  child: Text("Cancelar"),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  }),
+              FlatButton(
+                  child: Text("Ok"),
+                  onPressed: () {
+                    Navigator.pop(context);
+                    print("OK!!");
+                  }),
+            ],
+          );
+        });
   }
 
   _onClickToast() {
@@ -168,8 +178,7 @@ class HomePage extends StatelessWidget {
         timeInSecForIos: 1,
         backgroundColor: Colors.red,
         textColor: Colors.white,
-        fontSize: 16.0
-    );
+        fontSize: 16.0);
   }
 
   void _onClickFab() {
